@@ -64,6 +64,7 @@ app.post("/add-details",async(req,res,next)=>{
 
      res.redirect("/?status=1")
 });
+CLIENT_RENEG_LIMIT
 app.post("/update-details/:std_id",async(req,res,next)=>{
 
     let dataBase =await server.getData();
