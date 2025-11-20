@@ -3,6 +3,7 @@ const app = express();
 const extn = require("express-handlebars");
 const path = require("path");
 const server = require("./database/server");
+const { CLIENT_RENEG_LIMIT } = require("tls");
 
 
 app.engine("hbs",extn.engine({layoutsDir:"views",defaultLayout:false,extname:"hbs"}));
@@ -62,7 +63,7 @@ app.post("/add-details",async(req,res,next)=>{
     await store.insertOne(det);
 
      res.redirect("/?status=1")
-})
+});
 app.post("/update-details/:std_id",async(req,res,next)=>{
 
     let dataBase =await server.getData();
